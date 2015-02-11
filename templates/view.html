@@ -10,7 +10,7 @@
     <img src="/static/photos/{{ photo }}.jpg" /><br />
     {% if tweeted %}
     Tweeted!
-    {% else %}
+    {% elif twitter %}
     <div class="button"><a href="/tweet/{{ photo }}/">Tweet</a>
     {% endif %}
 </div>

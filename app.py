@@ -4,20 +4,26 @@ from glob import glob
 from datetime import datetime
 import os
 
-from twython import Twython
-from auth import (
-    consumer_key,
-    consumer_secret,
-    access_token,
-    access_token_secret
-)
+try:
+    from twython import Twython
+except:
+    Twython = None
+    twitter = None
 
-twitter = Twython(
-    consumer_key,
-    consumer_secret,
-    access_token,
-    access_token_secret
-)
+if Twython:
+    from auth import (
+        consumer_key,
+        consumer_secret,
+        access_token,
+        access_token_secret
+    )
+
+    twitter = Twython(
+        consumer_key,
+        consumer_secret,
+        access_token,
+        access_token_secret
+    )
 
 app = Flask(__name__)
 
