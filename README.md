@@ -4,6 +4,8 @@ Raspberry Pi photo tweeting web app for BETT 2015
 
 ## Installing
 
+Make sure you have enabled your camera first. You can do this by running `sudo raspi-config` and selecting the `Enable camera software` option.
+
 Install the requirements:
 
 ```bash
