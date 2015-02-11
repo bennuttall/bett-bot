@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+<title>Picamera demo</title>
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<div class="button"><a href="/capture/">CAPTURE</a></div>
+
+<ul class="photos">
+    {% for photo in photos %}
+    <li><a href="/view/{{ photo[15:-4] }}/"><img src="{{ photo }}" /></a></li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

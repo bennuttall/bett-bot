@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<title>Picamera demo</title>
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<div class="photo">
+    <img src="/static/photos/{{ photo }}.jpg" /><br />
+    {% if tweeted %}
+    Tweeted!
+    {% else %}
+    <div class="button"><a href="/tweet/{{ photo }}/">Tweet</a>
+    {% endif %}
+</div>
+
+</body>
+</html>
