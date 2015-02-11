@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from picamera import PiCamera
 from glob import glob
 from datetime import datetime
+import os
 
 from twython import Twython
 from auth import (
@@ -20,8 +21,10 @@ twitter = Twython(
 
 app = Flask(__name__)
 
+path = os.path.dirname(os.path.realpath(__file__))
+
 def get_photos():
-    photo_files = glob("/home/pi/web/static/photos/*.jpg")
+    photo_files = glob("%s/static/photos/*.jpg" % path)
     photos = ["/static/photos/%s" % photo.split('/')[-1] for photo in photo_files]
     return sorted(photos, reverse=True)
 
@@ -33,7 +36,7 @@ def index():
 @app.route('/capture/')
 def capture():
     timestamp = datetime.now().isoformat()
-    photo_path = '/home/pi/web/static/photos/%s.jpg' % timestamp
+    photo_path = '%s/static/photos/%s.jpg' % (path, timestamp)
     with PiCamera() as camera:
         camera.hflip = camera.vflip = True
         camera.resolution = (640, 400)
@@ -47,7 +50,7 @@ def view(photo):
 
 @app.route('/tweet/<photo>/')
 def tweet(photo):
-    photo_path = '/home/pi/web/static/photos/%s.jpg' % photo
+    photo_path = '%s/static/photos/%s.jpg' % (path, photo)
     message = "I'm at the @Raspberry_Pi stand at #bett2015"
     with open(photo_path, 'rb') as media:
         twitter.update_status_with_media(status=message, media=media)
