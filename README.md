@@ -36,4 +36,10 @@ python app.py
 
 ## Twitter
 
-To use the Twitter feature (tweet a picture), add your Twitter API keys from [dev.twitter.com](https://dev.twitter.com/) to `auth.py`.
+To use the Twitter feature (tweet a picture), install the `Twython` library:
+
+```bash
+sudo pip install twython
+```
+
+and add your Twitter API keys from [dev.twitter.com](https://dev.twitter.com/) to `auth.py`.
