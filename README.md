@@ -42,4 +42,4 @@ To use the Twitter feature (tweet a picture), install the `Twython` library:
 sudo pip install twython
 ```
 
-and add your Twitter API keys from [dev.twitter.com](https://dev.twitter.com/) to `auth.py`.
+and add your Twitter API keys from [dev.twitter.com](https://apps.twitter.com/) to `auth.py`.
