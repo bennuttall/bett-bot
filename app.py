@@ -8,22 +8,23 @@ try:
     from twython import Twython
 except:
     Twython = None
-    twitter = None
 
-if Twython:
-    from auth import (
-        consumer_key,
-        consumer_secret,
-        access_token,
-        access_token_secret
-    )
+from auth import (
+    consumer_key,
+    consumer_secret,
+    access_token,
+    access_token_secret
+)
 
+try:
     twitter = Twython(
         consumer_key,
         consumer_secret,
         access_token,
         access_token_secret
     )
+except:
+    twitter = None
 
 app = Flask(__name__)
 
